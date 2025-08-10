@@ -69,3 +69,48 @@ function updateChart() {
     }
   });
 }
+
+
+
+let currentMode = "income"; // or "expense"
+
+const incomeTypes = ["Salary", "Bonus", "Investment", "Freelance", "Other"];
+const expenseTypes = ["Rent", "Food", "Transport", "Utilities", "Entertainment", "Other"];
+
+function openModal(mode) {
+  currentMode = mode;
+  document.getElementById("modal").style.display = "block";
+  document.getElementById("modal-title").innerText = mode === "income" ? "Add Income" : "Add Expense";
+
+  const typeSelect = document.getElementById("modal-type");
+  typeSelect.innerHTML = "";
+  const options = mode === "income" ? incomeTypes : expenseTypes;
+  options.forEach(type => {
+    const option = document.createElement("option");
+    option.value = type;
+    option.textContent = type;
+    typeSelect.appendChild(option);
+  });
+
+  document.getElementById("modal-amount").value = "";
+}
+
+function closeModal() {
+  document.getElementById("modal").style.display = "none";
+}
+
+function submitTransaction() {
+  const type = document.getElementById("modal-type").value;
+  const amount = parseFloat(document.getElementById("modal-amount").value);
+  if (!type || isNaN(amount)) return;
+
+  if (currentMode === "income") {
+    incomes.push({ type, amount });
+  } else {
+    expenses.push({ type, amount });
+  }
+
+  updateSummary();
+  updateChart();
+  closeModal();
+}

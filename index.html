@@ -11,33 +11,26 @@
   <div class="container">
     <h1>💼 Salary Manager</h1>
 
-    <!-- Income Input -->
-    <section>
-  <h2>Add Income</h2>
-  <select id="income-type">
-    <option value="Salary">Salary</option>
-    <option value="Bonus">Bonus</option>
-    <option value="Investment">Investment</option>
-    <option value="Freelance">Freelance</option>
-    <option value="Other">Other</option>
-  </select>
-  <input type="number" id="income-amount" placeholder="Amount" />
-  <button onclick="addIncome()">Add Income</button>
+ <!-- Trigger Buttons -->
+<section>
+  <h2>Transactions</h2>
+  <button onclick="openModal('income')">Add Income </button>
+  <button onclick="openModal('expense')"class="az" >Add Expense</button>
 </section>
-    <!-- Expense Input -->
-    <section>
-  <h2>Add Expense</h2>
-  <select id="expense-type">
-    <option value="Rent">Rent</option>
-    <option value="Food">Food</option>
-    <option value="Transport">Transport</option>
-    <option value="Utilities">Utilities</option>
-    <option value="Entertainment">Entertainment</option>
-    <option value="Other">Other</option>
-  </select>
-  <input type="number" id="expense-amount" placeholder="Amount" />
-  <button onclick="addExpense()">Add Expense</button>
-</section>
+
+<!-- Popup Modal -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h3 id="modal-title">Add Income</h3>
+    <select id="modal-type">
+      <!-- Filled dynamically -->
+    </select>
+    <input type="number" id="modal-amount" placeholder="Amount" />
+    <button onclick="submitTransaction()">Add</button>
+  </div>
+</div>
+
 
     <!-- Summary -->
   <section>
