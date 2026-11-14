@@ -1,0 +1,117 @@
+* { box-sizing: border-box; margin: 0; }
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  background: linear-gradient(135deg, #1e3c72, #2a5298 45%, #28a745);
+  overflow: hidden;
+  position: relative;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: .55;
+  animation: float 14s ease-in-out infinite;
+}
+.b1 { width: 380px; height: 380px; background: #7f5af0; top: -100px; left: -80px; }
+.b2 { width: 320px; height: 320px; background: #2cb67d; bottom: -90px; right: -60px; animation-delay: -5s; }
+.b3 { width: 220px; height: 220px; background: #ff6b9d; top: 55%; left: 60%; animation-delay: -9s; }
+@keyframes float {
+  50% { transform: translate(40px, -30px) scale(1.1); }
+}
+
+.login-card {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  padding: 40px 34px 30px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, .16);
+  border: 1px solid rgba(255, 255, 255, .3);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, .3);
+  color: #fff;
+  text-align: center;
+  animation: rise .7s ease both;
+}
+@keyframes rise { from { opacity: 0; transform: translateY(24px); } }
+
+.logo {
+  width: 68px; height: 68px;
+  margin: 0 auto 16px;
+  display: grid; place-items: center;
+  font-size: 32px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, .22);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, .2);
+}
+h1 { font-size: 26px; font-weight: 700; }
+.subtitle { margin: 8px 0 28px; font-size: 14px; opacity: .85; }
+
+.field { position: relative; margin-bottom: 22px; text-align: left; }
+.field input {
+  width: 100%;
+  padding: 18px 44px 8px 16px;
+  font-size: 15px;
+  color: #fff;
+  background: rgba(255, 255, 255, .14);
+  border: 1px solid rgba(255, 255, 255, .3);
+  border-radius: 12px;
+  outline: none;
+  transition: border-color .2s, background .2s, box-shadow .2s;
+}
+.field label {
+  position: absolute; left: 16px; top: 15px;
+  font-size: 15px; opacity: .8;
+  pointer-events: none;
+  transition: all .2s;
+}
+.field input:focus,
+.field input:not(:placeholder-shown) { background: rgba(255, 255, 255, .2); }
+.field input:focus { border-color: #fff; box-shadow: 0 0 0 4px rgba(255, 255, 255, .15); }
+.field input:focus + label,
+.field input:not(:placeholder-shown) + label { top: 6px; font-size: 11px; opacity: 1; letter-spacing: .4px; }
+.field.invalid input { border-color: #ff8a8a; }
+.error { position: absolute; left: 4px; bottom: -17px; font-size: 12px; color: #ffd0d0; }
+
+.toggle {
+  position: absolute; right: 8px; top: 8px;
+  width: 34px; height: 34px;
+  background: none; border: none; color: #fff;
+  cursor: pointer; font-size: 16px; opacity: .7;
+}
+.toggle:hover { opacity: 1; }
+
+.row {
+  display: flex; justify-content: space-between; align-items: center;
+  margin: 4px 0 22px; font-size: 13px;
+}
+.check { display: flex; align-items: center; gap: 7px; cursor: pointer; }
+.check input { accent-color: #28a745; width: 15px; height: 15px; }
+a { color: #fff; text-decoration: none; opacity: .9; }
+a:hover { text-decoration: underline; opacity: 1; }
+
+.submit {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px; font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #28a745, #1f8f3a);
+  border: none; border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(40, 167, 69, .45);
+  transition: transform .15s, box-shadow .15s;
+}
+.submit:hover { transform: translateY(-2px); box-shadow: 0 14px 28px rgba(40, 167, 69, .55); }
+.submit:active { transform: translateY(0); }
+.submit.loading { pointer-events: none; opacity: .8; }
+
+.signup { margin-top: 22px; font-size: 13px; opacity: .9; }
+.signup a { font-weight: 600; }

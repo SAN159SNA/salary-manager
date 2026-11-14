@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign in · Salary Manager</title>
+  <link rel="stylesheet" href="login.css" />
+</head>
+<body>
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+
+  <main class="login-card">
+    <div class="logo">💼</div>
+    <h1>Welcome back</h1>
+    <p class="subtitle">Sign in to manage your salary, income and expenses.</p>
+
+    <form id="login-form" novalidate>
+      <div class="field">
+        <input type="email" id="email" placeholder=" " autocomplete="email" required />
+        <label for="email">Email address</label>
+        <span class="error" id="email-error"></span>
+      </div>
+
+      <div class="field">
+        <input type="password" id="password" placeholder=" " autocomplete="current-password" required />
+        <label for="password">Password</label>
+        <button type="button" class="toggle" id="toggle" aria-label="Show password">👁</button>
+        <span class="error" id="password-error"></span>
+      </div>
+
+      <div class="row">
+        <label class="check"><input type="checkbox" id="remember" /> Remember me</label>
+        <a href="#">Forgot password?</a>
+      </div>
+
+      <button type="submit" class="submit" id="submit">Sign in</button>
+    </form>
+
+    <p class="signup">New here? <a href="#">Create an account</a></p>
+  </main>
+
+  <script src="login.js"></script>
+</body>
+</html>
